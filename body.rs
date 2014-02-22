@@ -19,7 +19,7 @@ pub struct Body {
 }
 
 impl Body {
-    fn new() -> Body {
+    pub fn new() -> Body {
         Body { pos: Vec2::new(),
                vel: Vec2::new(),
                force: Vec2::new(),
@@ -35,7 +35,7 @@ impl Body {
         }
     }
 
-    fn new_mw(w: Vec2, m: f64) -> Body {
+    pub fn new_mw(w: Vec2, m: f64) -> Body {
        let I = (w.x * w.x + w.y * w.y) / 12.0;
         Body { pos: Vec2::new(),
                vel: Vec2::new(),

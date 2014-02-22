@@ -8,8 +8,13 @@ pub struct World {
 }
 
 impl World {
+    pub fn new(grav: Vec2, iters: uint, bods: ~[Body]) -> World {
+        World { bodies: bods, gravity: grav, iterations: iters }
+    }
+
     fn step(&mut self, dt: f64) {
         
+        // integrate acceleration
         for b in self.bodies.mut_iter() {
             if b.invMass == 0.0 {
                 continue;
@@ -21,6 +26,7 @@ impl World {
         }
         
 
+        // integrate velocity
         for b in self.bodies.mut_iter() {
             b.pos = b.pos + b.vel * dt;
         }
